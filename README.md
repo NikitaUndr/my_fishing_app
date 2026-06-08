@@ -49,3 +49,33 @@
 * `lib/utils/` – вспомогательные функции (форматирование дат, парсинг улова, плюрализация)
 
 ## Функциональность
+
+* **Аутентификация** – Firebase Auth: регистрация/вход с валидацией, обработка ошибок, поток состояния пользователя.
+* **Локальная база данных** – SQLite (sqflite): таблица `fishing_records` с полями id, user_id, date, place_name, latitude, longitude, tackle, bait, catch_details, temperature, weather_condition, photo_path. Индексы по user_id и date.
+* **Офлайн-режим** – все операции журнала выполняются локально; при отсутствии интернета работа продолжается (кроме получения погоды, но запись сохраняется).
+* **Карта** – Яндекс.Карты (yandex_mapkit): отображение карты, маркеры, поиск, геолокация (geolocator), обратное геокодирование (HTTP‑запросы к геокодеру).
+* **Погода** – OpenWeatherMap API: GET-запрос по координатам, парсинг JSON, сохранение температуры и описания.
+* **Статистика** – агрегация по месяцам, вычисление топ‑5 мест, построение графика (fl_chart).
+* **Лунный календарь** – расчёт фазы: (date - known_new_moon) / synodic_month % 1.0, пороговое определение фазы, прогноз.
+* **Галерея** – чтение файлов из photo_path, отображение в GridView, передача списка путей в FullScreenPhotoViewer.
+* **Уведомления** – планирование через periodicallyShow (RepeatInterval.weekly) и тестовый показ.
+
+## Структура данных
+
+Приложение используя локальную SQLite-базу данных с одной основной таблицей:
+
+```sql
+CREATE TABLE fishing_records (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id TEXT NOT NULL,
+    date DATETIME NOT NULL,
+    place_name TEXT NOT NULL,
+    latitude REAL NOT NULL,
+    longitude REAL NOT NULL,
+    tackle TEXT,
+    bait TEXT,
+    catch_details TEXT,
+    temperature REAL,
+    weather_condition TEXT,
+    photo_path TEXT
+);
