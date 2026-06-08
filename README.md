@@ -79,3 +79,30 @@ CREATE TABLE fishing_records (
     weather_condition TEXT,
     photo_path TEXT
 );
+
+## Установка и запуск
+
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/ваш_username/fisher-app.git
+   cd fisher-app
+
+2. Установите Flutter SDK (см. документацию (https://docs.flutter.dev/get-started/install)).
+
+3. Установите зависимости:
+   ```bash
+   flutter pub get
+
+4. Настройте Firebase:
+Создайте проект в Firebase Console.
+Добавьте Android-приложение с package name com.example.fishing_app2 (или вашим).
+Скачайте google-services.json и поместите в android/app/.
+Включите аутентификацию по email/паролю.
+Получите API-ключи:
+Яндекс.Карты (мобильный SDK) – вставьте в MainApplication.java.
+OpenWeatherMap – вставьте в WeatherService.
+Яндекс.Геокодер – вставьте в YandexMapPickerScreen.
+
+5. Запустите приложение:
+   flutter run
+
