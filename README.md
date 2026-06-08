@@ -79,6 +79,7 @@ CREATE TABLE fishing_records (
     weather_condition TEXT,
     photo_path TEXT
 );
+```
 
 ## Установка и запуск
 
@@ -94,15 +95,66 @@ CREATE TABLE fishing_records (
    flutter pub get
 
 4. Настройте Firebase:
-Создайте проект в Firebase Console.
-Добавьте Android-приложение с package name com.example.fishing_app2 (или вашим).
-Скачайте google-services.json и поместите в android/app/.
-Включите аутентификацию по email/паролю.
-Получите API-ключи:
+* Создайте проект в Firebase Console.
+* Добавьте Android-приложение с package name com.example.fishing_app2 (или вашим).
+* Скачайте google-services.json и поместите в android/app/.
+* Включите аутентификацию по email/паролю.
+* Получите API-ключи:
 Яндекс.Карты (мобильный SDK) – вставьте в MainApplication.java.
 OpenWeatherMap – вставьте в WeatherService.
 Яндекс.Геокодер – вставьте в YandexMapPickerScreen.
 
 5. Запустите приложение:
-   flutter run
+  ```bash
+  flutter run
+```
+
+## Архитектура проекта (файлы)
+
+* lib/main.dart – точка входа, инициализация Firebase, провайдеров, маршрутизация.
+* lib/screens/login_screen.dart, register_screen.dart – аутентификация.
+* lib/screens/journal_screen.dart – журнал с удалением свайпом.
+* lib/screens/add_edit_record_screen.dart – форма добавления/редактирования, выбор фото, карта.
+* lib/screens/all_points_map_screen.dart – карта всех сохранённых точек.
+* lib/screens/yandex_map_picker_screen.dart – выбор места на карте с поиском.
+* lib/screens/statistics_screen.dart – статистика (график, топ‑5).
+* lib/screens/gallery_screen.dart – галерея улова.
+* lib/screens/lunar_calendar_screen.dart – лунный календарь.
+* lib/providers/auth_provider.dart, journal_provider.dart, theme_provider.dart.
+* lib/services/auth_service.dart, database_service.dart, weather_service.dart, notification_service.dart.
+* lib/models/fishing_record.dart.
+
+## Результаты
+
+Приложение успешно протестировано на реальных устройствах Samsung Galaxy (Android 13, 14). Все 23 функциональных теста пройдены. 
+Основные метрики:
+* Стабильность – ни одного краша при длительном использовании.
+* Производительность – добавление 50+ записей, скроллинг журнала и галереи менее 0.5 секунды.
+* Офлайн-режим – полная работа журнала без интернета, корректная обработка отсутствия сети при запросе погоды.
+* Точность геокодирования – обратное геокодирование даёт корректный адрес для выбранных координат.
+* Лунный календарь – фазы совпадают с общедоступными календарями (погрешность <0.01).
+
+<img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/91946c9c-47a6-4ce4-a0d0-2b9e413e9ef1" /> <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/192aa997-7174-4a2a-872e-2ed301af8b58" /> <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/c40c8416-a2eb-43bf-ba21-33676dbe1b15" /> <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/12cb7bde-1289-4bb0-85f8-7a77cc504f10" /> 
+
+<img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/805a1e6c-c717-4466-a424-7c3527a44bce" /> <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/2f80ec15-7bb8-4ce0-8880-bdf76987e342" /> <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/dde0b460-b968-43ef-9b4a-ff65a9bb2fe5" /> <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/3337b73e-5b47-482e-a0b2-b784eb63b299" />
+
+## Требования
+
+* Flutter SDK (>=3.13.0)
+
+* Dart (>=3.1.0)
+
+* Android SDK (minSdk 26, targetSdk 34)
+
+* Для сборки под iOS: Xcode 14+ (опционально)
+
+* Доступ в интернет для работы карт и погоды (базовый функционал журнала работает офлайн)
+
+
+
+
+
+
+
+
 
