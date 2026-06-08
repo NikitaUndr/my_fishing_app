@@ -1,7 +1,7 @@
 ## Данные об авторе
 
 # **АНДРЕЙЧУК НИКИТА СЕРГЕЕВИЧ**  
-**Логин:**   
+**Логин:** Andrejchuk_NS_22   
 **Курс / семестр:** 4 курс / 8 семестр  
 **Специальность:** «Программное обеспечение информационных 
 технологий»  
@@ -138,7 +138,8 @@ OpenWeatherMap – вставьте в WeatherService.
 
 <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/12cb7bde-1289-4bb0-85f8-7a77cc504f10" /> <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/805a1e6c-c717-4466-a424-7c3527a44bce" /> <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/2f80ec15-7bb8-4ce0-8880-bdf76987e342" /> 
 
-<img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/dde0b460-b968-43ef-9b4a-ff65a9bb2fe5" /> <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/3337b73e-5b47-482e-a0b2-b784eb63b299" />
+<img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/dde0b460-b968-43ef-9b4a-ff65a9bb2fe5" /> <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/3337b73e-5b47-482e-a0b2-b784eb63b299" /> <img width="232" height="434" alt="image" src="https://github.com/user-attachments/assets/8768031a-0bef-4cea-91fe-62ad4626096f" />
+
 
 ## Требования
 
